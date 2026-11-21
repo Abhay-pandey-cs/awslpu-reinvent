@@ -43,14 +43,39 @@ export function SponsorsPartners() {
                 {sponsor.tier}
               </span>
 
-              <div className="flex items-center justify-between gap-4">
-                <span className="text-lg font-light text-white/75 transition-colors duration-300 group-hover:text-white sm:text-xl">
-                  {sponsor.name}
-                </span>
+              <div>
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-lg font-light text-white/75 transition-colors duration-300 group-hover:text-white sm:text-xl">
+                    {sponsor.name}
+                  </span>
 
-                <span className="text-[#FF2D87] transition-transform duration-300 group-hover:translate-x-1">
-                  ↗
-                </span>
+                  <span className="text-[#FF2D87] transition-transform duration-300 group-hover:translate-x-1">
+                    ↗
+                  </span>
+                </div>
+
+                {sponsor.tier === "TITLE" && (
+                  <div className="mt-4 flex items-center gap-5 sm:gap-6">
+                    <img
+                      src="/partners/aws-clean.png"
+                      alt="AWS"
+                      className="h-10 w-auto object-contain sm:h-12"
+                    />
+                    <img
+                      src="/partners/lpu-clean-boundary.png"
+                      alt="LPU"
+                      className="h-10 w-auto object-contain sm:h-12"
+                    />
+                  </div>
+                )}
+
+                {sponsor.tier === "TECHNOLOGY" && (
+                  <div className="mt-4">
+                    <span className="text-base font-medium tracking-tight text-white sm:text-lg">
+                      AWS SBG <span className="text-[#FF00D4]">·</span> LPU
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
           ))}
