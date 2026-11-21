@@ -71,8 +71,16 @@ export function SponsorsPartners() {
 
                 {sponsor.tier === "TECHNOLOGY" && (
                   <div className="mt-4">
+                    <img
+                      src="/partners/awssbg.png"
+                      alt="AWS SBG"
+                      className="h-10 w-auto object-contain sm:h-12"
+                    />
                     <span className="text-base font-medium tracking-tight text-white sm:text-lg">
+                      AWS SBG <span className="text-[#FF00D4]"></span>
                     </span>
+                    
+                    
                   </div>
                 )}
               </div>
