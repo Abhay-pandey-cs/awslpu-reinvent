@@ -153,37 +153,6 @@ export default function TicketsPage() {
       return
     }
 
-    try {
-      const profileRes = await fetch("/api/auth/me", { cache: "no-store" })
-
-      if (profileRes.status === 401) {
-        router.push("/auth?mode=login&redirect=/tickets")
-        return
-      }
-
-      if (!profileRes.ok) {
-        throw new Error("Unable to verify your profile. Please try again.")
-      }
-
-      const { user: profile } = await profileRes.json()
-      const academic = profile.academic
-      if (
-        !profile.first_name?.trim() ||
-        !profile.last_name?.trim() ||
-        !profile.phone?.trim() ||
-        !academic?.institution?.trim() ||
-        !academic?.degree?.trim() ||
-        !academic?.department?.trim() ||
-        !academic?.graduation_year
-      ) {
-        router.push("/dashboard?tab=profile&checkout=profile-incomplete")
-        return
-      }
-    } catch (error) {
-      setOrderError(error instanceof Error ? error.message : "Unable to verify your profile.")
-      return
-    }
-
     setOrderError(null)
     setCheckoutStep("processing")
     setPollingStatus("Reserving ticket...")
