@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
 import {
   ArrowUpRight,
   ArrowRight,
@@ -31,12 +31,9 @@ import type { Venue } from "@/types/schedule"
 
 export default function DashboardPage() {
   const router = useRouter()
-  const searchParams = useSearchParams()
   const { user, loading, authenticated, refreshUser } = useAuth()
 
-  const [activeTab, setActiveTab] = useState<"overview" | "tickets" | "profile" | "guide">(
-    searchParams.get("tab") === "profile" ? "profile" : "overview"
-  )
+  const [activeTab, setActiveTab] = useState<"overview" | "tickets" | "profile" | "guide">("overview")
   const [tickets, setTickets] = useState<Ticket[]>([])
   const [loadingTickets, setLoadingTickets] = useState(true)
   const [ticketError, setTicketError] = useState<string | null>(null)
@@ -585,19 +582,6 @@ export default function DashboardPage() {
                 Keep your attendee badge information and academic affiliation up to date.
               </p>
             </div>
-
-            {searchParams.get("checkout") === "profile-incomplete" && (
-              <div
-                role="alert"
-                className="mt-6 flex items-start gap-3 border border-amber-500/40 bg-amber-500/10 p-4 text-sm text-amber-200"
-              >
-                <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-amber-300" />
-                <p>
-                  Please complete your profile before buying a ticket. Add your university/college/company,
-                  degree, department, and graduation year, then save your profile.
-                </p>
-              </div>
-            )}
 
             {profileSuccess && (
               <div className="mt-6 flex items-center gap-2 border border-emerald-500/40 bg-emerald-500/10 p-3.5 text-xs text-emerald-300">
