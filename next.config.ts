@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "dqq6hmbhjgrfe.cloudfront.net",
       },
+      {
+        protocol: "https",
+        hostname: "static.awslpu.in",
+      },
     ],
   },
 };

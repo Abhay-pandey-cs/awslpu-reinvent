@@ -16,7 +16,7 @@ export function Hero() {
           aria-hidden="true"
           className="h-full w-full object-cover object-[58%_center] sm:object-center"
         >
-          <source src="https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/events/approved/reinvent26/video/RIV%20Website%20Loop_Foyer_v2.c6bbccb6cb4e0256ab5c1b7d63c862ddf2dd6636.mp4" type="video/mp4" />
+          <source src="https://static.awslpu.in/reinvent-video-loop" type="video/mp4" />
         </video>
       </div>
 
